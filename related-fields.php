@@ -27,7 +27,7 @@ function gfrf_populate_dropdown( $form ) {
 
 	foreach ( $form['fields'] as &$field ) {
 
-		if ( $field['type'] != 'select' && $field['type'] != 'multiselect' ) {
+		if ( ! gfrf_is_valid_field_type( $field['type'] ) ) {
 			continue;
 		}
 
@@ -125,6 +125,40 @@ function gfrf_get_available_form_fields( $form_id, $selected_field_id = 0 ) {
 	}
 
 	return $str;
+}
+
+/**
+ * Helper function to check if field is populateable
+ *
+ * @since 1.0.0
+ *
+ * @param string $field_type Field type to check.
+ *
+ * @return bool If field is valid or not.
+ */
+function gfrf_is_valid_field_type( $field_type ) {
+	$is_valid = false;
+
+	switch ( $field_type ) {
+		case 'select':
+		case 'multiselect':
+		case 'radio':
+		case 'checkbox':
+			$is_valid = true;
+			break;
+	}
+
+	/**
+	 * Filter to check if a Gravity Forms field type is able to support related fields.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param bool   $is_valid Whether $field_type is valid or not.
+	 * @param string $field_type Gravity Forms field type to check.
+	 */
+	$is_valid = apply_filters( 'gfrf_is_valid_field_type', $is_valid, $field_type );
+
+	return $is_valid;
 }
 
 function gfrf_get_available_form_fields_callback() {

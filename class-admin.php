@@ -167,7 +167,7 @@ class GFRF_Admin {
 
 		foreach ( $form['fields'] as $field ) {
 
-			if ( $field['type'] != 'select' && $field['type'] != 'multiselect' ) {
+			if ( ! gfrf_is_valid_field_type( $field['type'] ) ) {
 				continue;
 			}
 
