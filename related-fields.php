@@ -46,7 +46,9 @@ function gfrf_populate_dropdown( $form ) {
 		$choices = array();
 
 		foreach ( $entries as $entry ) {
-			$choices[] = array( 'text' => $entry[ $source_form_field_id ], 'value' => $entry[ $source_form_field_id ] );
+			if ( isset( $entry[ $source_form_field_id ] ) && ! empty ( $entry[ $source_form_field_id ] ) ) {
+				$choices[] = array( 'text' => $entry[ $source_form_field_id ], 'value' => $entry[ $source_form_field_id ] );
+			}
 		}
 
 		$field->choices = $choices;
