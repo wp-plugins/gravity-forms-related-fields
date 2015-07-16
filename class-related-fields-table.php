@@ -10,10 +10,10 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 
 		$this->_column_headers = array(
 			array(
-				'cb'                   => '',
-				'field'                => __( 'Field', 'gravityformsrelatedfields' ),
-				'source_form_id'       => __( 'Form', 'gravityformsrelatedfields' ),
-				'source_form_field_id' => __( 'Form field', 'gravityformsrelatedfields' )
+				'cb'                => '',
+				'target_field'      => __( 'Field', 'gravityformsrelatedfields' ),
+				'source_form'       => __( 'Source form', 'gravityformsrelatedfields' ),
+				'source_form_field' => __( 'Source form field', 'gravityformsrelatedfields' )
 			),
 			array(),
 			array(),
@@ -75,7 +75,7 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 	<?php
 	}
 
-	function column_field( $item ) {
+	function column_target_field( $item ) {
 		$edit_url      = add_query_arg( array( 'rfid' => $item['id'] ) );
 		$actions       = apply_filters(
 			'gfrf_related_field_actions', array(
@@ -115,7 +115,22 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 	}
 
 	function column_source_form( $item ) {
-		
+		$form = GFFormsModel::get_form_meta( $item['source_form_id'] );
+
+		if ( isset( $form['title'] ) ) {
+			echo $form['title'];
+		}
+	}
+
+	function column_source_form_field( $item ) {
+		$form = GFFormsModel::get_form_meta( $item['source_form_id'] );
+
+		foreach ( $form['fields'] as $field ) {
+			if ( $field['id'] == $item['source_form_field_id'] ) {
+				echo empty( $field['adminLabel'] ) ? $field['label'] : $field['adminLabel'];
+				break;
+			}
+		}
 	}
 
 }
