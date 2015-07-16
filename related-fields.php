@@ -1,12 +1,14 @@
 <?php
 /*
 Plugin Name: Gravity Forms Related Fields Add-On
-Description: Related Fields Add-on for Gravity Forms
-Version: 1.0
-Author: mikemanger
-Author URI:
+Description: Automatically populate Gravity Forms fields based on form submissions
+Plugin URI:  https://bitbucket.org/lighthouseuk/gravityforms-related-fields
+Version:     1.0.0
+Author:      Mike Manger
 Text Domain: gravityformsrelatedfields
 Domain Path: /languages
+License:     GNU General Public License v2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 /**
