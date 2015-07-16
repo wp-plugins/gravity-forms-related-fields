@@ -11,9 +11,7 @@ A plugin to dynamically populate Gravity Form fields with form submissions.
 
 == Description ==
 
-A plugin to dynamically populate Gravity Form fields with form submissions.
-
-Any multiple choice field (select, checkbox or radio) can be mapped to have the submission entries
+Any Gravity Form multiple choice field (select, checkbox or radio) can be mapped to have the submission entries
 of another form as their values.
 
 To create related fields edit a Gravity Form and go to 'Related Fields' from the Form Settings menu.
