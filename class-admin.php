@@ -167,13 +167,13 @@ class GFRF_Admin {
 
 		foreach ( $form['fields'] as $field ) {
 
-			if ( $field->type != 'select' && $field->type != 'multiselect' ) {
+			if ( $field['type'] != 'select' && $field['type'] != 'multiselect' ) {
 				continue;
 			}
 
-			$label = empty( $field->adminLabel ) ? $field->label : $field->adminLabel;
+			$label = empty( $field['adminLabel'] ) ? $field['label'] : $field['adminLabel'];
 
-			$current_form_fields[ $field->id ] = $label;
+			$current_form_fields[ $field['id'] ] = $label;
 
 		}
 

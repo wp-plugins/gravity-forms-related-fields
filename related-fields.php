@@ -27,11 +27,11 @@ function gfrf_populate_dropdown( $form ) {
 
 	foreach ( $form['fields'] as &$field ) {
 
-		if ( $field->type != 'select' && $field->type != 'multiselect' ) {
+		if ( $field['type'] != 'select' && $field['type'] != 'multiselect' ) {
 			continue;
 		}
 
-		$related_field = gfrf_get_related_field( $field->id, $related_fields );
+		$related_field = gfrf_get_related_field( $field['id'], $related_fields );
 
 		$is_active  = isset( $related_field['is_active'] ) ? $related_field['is_active'] : true;
 
@@ -51,7 +51,7 @@ function gfrf_populate_dropdown( $form ) {
 			}
 		}
 
-		$field->choices = $choices;
+		$field['choices'] = $choices;
 
 	}
 
@@ -117,11 +117,11 @@ function gfrf_get_available_form_fields( $form_id, $selected_field_id = 0 ) {
 
 	$str = '<option value="">' . __( 'Select a field', 'gravityformsrelatedfields' ) . ' </option>';
 	foreach ( $form['fields'] as $field ) {
-		if ( $field->displayOnly ) {
+		if ( $field['displayOnly'] ) {
 			continue;
 		}
-		$label = empty( $field->adminLabel ) ? $field->label : $field->adminLabel;
-		$str .= '<option value="' . $field->id . '"' . selected( $field->id, $selected_field_id, false ) . '>' . esc_html( $label ) . '</option>' . "\n";
+		$label = empty( $field['adminLabel'] ) ? $field['label'] : $field['adminLabel'];
+		$str .= '<option value="' . $field['id'] . '"' . selected( $field['id'], $selected_field_id, false ) . '>' . esc_html( $label ) . '</option>' . "\n";
 	}
 
 	return $str;

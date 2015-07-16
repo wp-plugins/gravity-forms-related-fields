@@ -84,8 +84,9 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 			)
 		);
 		foreach ( $this->form['fields'] as $field ) {
-			if ( $field->id == $item['target_field_id'] ) {
-				$field_label = $field->label;
+			if ( $field['id'] == $item['target_field_id'] ) {
+				$field_label = $field['label'];
+				break;
 			}
 		}
 
