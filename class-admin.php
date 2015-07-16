@@ -19,6 +19,8 @@ class GFRF_Admin {
 	public function __construct() {
 		add_filter( 'gform_form_settings_menu', array( $this, 'settings_menu' ), 10, 2 );
 		add_action( 'gform_form_settings_page_gfrf-settings', array( $this, 'settings_page' ) );
+
+		add_filter( 'gform_tooltips', array( $this, 'add_tooltips' ) );
 	}
 
 	/**
@@ -200,7 +202,7 @@ class GFRF_Admin {
 						</td>
 					</tr>
 					<tr>
-						<th><?php _e( 'Target form', 'gravityformsrelatedfields' ); ?></th>
+						<th><?php _e( 'Target form', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_target_form' ) ?></th>
 						<td>
 							<select name="target_form" onchange="set_target_form_fields(this)">
 								<option value=""><?php _e( 'Select a form', 'gravityformsrelatedfields' ); ?></option>
@@ -211,7 +213,7 @@ class GFRF_Admin {
 						</td>
 					</tr>
 					<tr id="target_form_field_row" <?php echo empty( $target_form_id ) ? 'style="display:none;"' : '' ?>>
-						<th><?php _e( 'Target form field', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'form_redirect_to_webpage' ) ?></th>
+						<th><?php _e( 'Target form field', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_target_form_field' ) ?></th>
 						<td>
 							<select id="target_form_field" name="target_form_field" style="max-width: 400px;">
 								<?php echo gfrf_get_available_form_fields( $target_form_id, $target_form_field_id ); ?>
@@ -343,5 +345,20 @@ class GFRF_Admin {
 		GFCommon::add_message( sprintf( __( 'Related field saved successfully. %sBack to related fields.%s', 'gravityformsrelatedfields' ), '<a href="' . esc_url( $url ) . '">', '</a>' ) );
 
 		return $related_field;
+	}
+
+	/**
+	 * Adds helper tooltips.
+	 *
+	 * @param array $tooltips Array of existing tooltips.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @return array Array of filtered tooltips.
+	 */
+	function add_tooltips( $tooltips ) {
+		$tooltips['gfrf_target_form']       = __( 'Entries from the source form will be used to populate your field', 'gravityformsrelatedfields' );
+		$tooltips['gfrf_target_form_field'] = __( 'The this field will be used as the option value. Make sure to pick something unique', 'gravityformsrelatedfields' );
+		return $tooltips;
 	}
 }
