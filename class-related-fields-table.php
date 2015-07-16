@@ -1,7 +1,21 @@
 <?php
-
+/**
+ * GFRF_Related_Fields_Table class. This class extends WP_List_Table to handle displaying the
+ * list of related field connections.
+ *
+ * @since 1.0.0
+ *
+ * @see WP_List_Table
+ */
 class GFRF_Related_Fields_Table extends WP_List_Table {
 
+	/**
+	 * Stores the Gravity Form the connections belong to.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @var object
+	 */
 	public $form;
 
 	function __construct( $form ) {
@@ -67,6 +81,13 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 		echo rgar( $item, $column );
 	}
 
+	/**
+	 * Display a toggle button to deactivate related field connections.
+	 *
+	 * @since 1.0.0
+	 *
+	 * @param object $item Related Field being displayed.
+	 */
 	function column_cb( $item ) {
 
 		$is_active = isset( $item['is_active'] ) ? $item['is_active'] : true;
