@@ -13,6 +13,11 @@ A plugin to dynamically populate Gravity Form fields with form submissions.
 
 A plugin to dynamically populate Gravity Form fields with form submissions.
 
+Any multiple choice field (select, checkbox or radio) can be mapped to have the submission entries
+of another form as their values.
+
+To create related fields edit a Gravity Form and go to 'Related Fields' from the Form Settings menu.
+
 == Installation ==
 
 1. Upload `gravityforms-related-fields` to the `/wp-content/plugins/` directory
@@ -23,6 +28,11 @@ A plugin to dynamically populate Gravity Form fields with form submissions.
 = I have found a bug =
 
 Please raise a ticket on the [issue tracker](https://bitbucket.org/lighthouseuk/gravityforms-related-fields/issues). Pull requests also accepted!
+
+== Screenshots ==
+
+1. Adding a new related field connection. This will map the entries in the form "B2B Buyer Personas" to be Checkbox options.
+2. You can have multiple related field connections for each form and disable them when they are not needed.
 
 == Changelog ==
 
