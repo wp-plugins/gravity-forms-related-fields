@@ -1,11 +1,11 @@
 # Gravity Forms Related Fields Add-On.
-# This file is distributed under the same license as the gravityforms-related-fields package.
+# This file is distributed under the same license as the gravity-forms-related-fields package.
 # Mike Manger <technical@lighthouseuk.net>, 2015.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: gravityforms-related-fields 1.0.0\n"
+"Project-Id-Version: gravity-forms-related-fields 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-07-02 15:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"

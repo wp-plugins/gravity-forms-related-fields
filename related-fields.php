@@ -5,7 +5,7 @@ Description: Automatically populate Gravity Forms fields based on form submissio
 Plugin URI:  https://bitbucket.org/lighthouseuk/gravityforms-related-fields
 Version:     1.0.0
 Author:      Mike Manger
-Text Domain: gravityforms-related-fields
+Text Domain: gravity-forms-related-fields
 Domain Path: /languages
 License:     GNU General Public License v2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -121,7 +121,7 @@ function gfrf_get_available_form_fields( $form_id, $selected_field_id = 0 ) {
 
 	$form_fields = array();
 
-	$str = '<option value="">' . __( 'Select a field', 'gravityforms-related-fields' ) . ' </option>';
+	$str = '<option value="">' . __( 'Select a field', 'gravity-forms-related-fields' ) . ' </option>';
 	foreach ( $form['fields'] as $field ) {
 		if ( $field['displayOnly'] ) {
 			continue;
@@ -200,7 +200,7 @@ function gfrf_toggle_related_field_active_callback() {
 add_action( 'wp_ajax_gfrf_toggle_related_field_active', 'gfrf_toggle_related_field_active_callback' );
 
 function gfrf_load_plugin_textdomain() {
-	load_plugin_textdomain( 'gravityforms-related-fields', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+	load_plugin_textdomain( 'gravity-forms-related-fields', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'plugins_loaded', 'gfrf_load_plugin_textdomain' );
 
