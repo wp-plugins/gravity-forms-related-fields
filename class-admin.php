@@ -53,7 +53,7 @@ class GFRF_Admin {
 	function settings_menu( $setting_tabs, $form_id ) {
 		$setting_tabs[] = array(
 			'name' => 'gfrf-settings',
-			'label' => __( 'Related Fields', 'gravityformsrelatedfields' ),
+			'label' => __( 'Related Fields', 'gravityforms-related-fields' ),
 			'query' => array(
 				'rfid' => null,
 			),
@@ -86,12 +86,12 @@ class GFRF_Admin {
 	function list_page( $form_id ) {
 		self::maybe_process_list_action();
 
-		GFFormSettings::page_header( __( 'Related Fields', 'gravityformsrelatedfields' ) );
+		GFFormSettings::page_header( __( 'Related Fields', 'gravityforms-related-fields' ) );
 		$add_new_url = add_query_arg( array( 'rfid' => 0 ) );
 		?>
 
-		<h3><span><?php _e( 'Related Field Connections', 'gravityformsrelatedfields' ) ?>
-				<a id="add-new-related-field" class="add-new-h2" href="<?php echo esc_url( $add_new_url ) ?>"><?php _e( 'Add New', 'gravityformsrelatedfields' ) ?></a></span>
+		<h3><span><?php _e( 'Related Field Connections', 'gravityforms-related-fields' ) ?>
+				<a id="add-new-related-field" class="add-new-h2" href="<?php echo esc_url( $add_new_url ) ?>"><?php _e( 'Add New', 'gravityforms-related-fields' ) ?></a></span>
 		</h3>
 
 		<?php
@@ -122,10 +122,10 @@ class GFRF_Admin {
 
 				if ( is_active ) {
 					img.src = img.src.replace( 'active1.png', 'active0.png' );
-					jQuery( img ).attr( 'title', '<?php _e( 'Inactive', 'gravityformsrelatedfields' ); ?>').attr( 'alt', '<?php _e( 'Inactive', 'gravityformsrelatedfields' ); ?>');
+					jQuery( img ).attr( 'title', '<?php _e( 'Inactive', 'gravityforms-related-fields' ); ?>').attr( 'alt', '<?php _e( 'Inactive', 'gravityforms-related-fields' ); ?>');
 				} else {
 					img.src = img.src.replace( 'active0.png', 'active1.png' );
-					jQuery( img ).attr( 'title', '<?php _e( 'Active', 'gravityformsrelatedfields' ); ?>').attr( 'alt', '<?php _e( 'Active', 'gravityformsrelatedfields' ); ?>');
+					jQuery( img ).attr( 'title', '<?php _e( 'Active', 'gravityforms-related-fields' ); ?>').attr( 'alt', '<?php _e( 'Active', 'gravityforms-related-fields' ); ?>');
 				}
 				jQuery.post( ajaxurl, {
 					security: '<?php echo wp_create_nonce( 'gfrf_toggle_related_field_active' ); ?>',
@@ -137,7 +137,7 @@ class GFRF_Admin {
 				function( response ) {
 
 					if ( ! response ) {
-						alert('<?php echo esc_js( __( 'Ajax error while updating the related field', 'gravityformsrelatedfields' ) ) ?>')
+						alert('<?php echo esc_js( __( 'Ajax error while updating the related field', 'gravityforms-related-fields' ) ) ?>')
 					}
 
 				});
@@ -161,7 +161,7 @@ class GFRF_Admin {
 		$related_fields = gfrf_get_related_fields( $form_id );
 		$related_field = self::handle_edit_submission( rgar( $related_fields, $related_id ), $related_fields, $form_id );
 
-		GFFormSettings::page_header( __( 'Related Fields', 'gravityformsrelatedfields' ) );
+		GFFormSettings::page_header( __( 'Related Fields', 'gravityforms-related-fields' ) );
 
 		$current_form_fields = array();
 
@@ -189,13 +189,13 @@ class GFRF_Admin {
 
 				<table class="form-table gforms_form_settings">
 					<tr>
-						<th><?php _e( 'Field to populate', 'gravityformsrelatedfields' ); ?></th>
+						<th><?php _e( 'Field to populate', 'gravityforms-related-fields' ); ?></th>
 						<td>
 							<?php if ( empty( $current_form_fields ) ) : ?>
-								<?php _e( 'There are no mapable fields in this form', 'gravityformsrelatedfields' ); ?>
+								<?php _e( 'There are no mapable fields in this form', 'gravityforms-related-fields' ); ?>
 							<?php else: ?>
 								<select name="target_field">
-									<option value=""><?php _e( 'Select a field', 'gravityformsrelatedfields' ); ?></option>
+									<option value=""><?php _e( 'Select a field', 'gravityforms-related-fields' ); ?></option>
 									<?php foreach ( $current_form_fields as $id => $label ) : ?>
 										<option value="<?php echo $id; ?>" <?php selected( $target_field_id, $id ); ?>><?php echo $label; ?></option>
 									<?php endforeach; ?>
@@ -204,10 +204,10 @@ class GFRF_Admin {
 						</td>
 					</tr>
 					<tr>
-						<th><?php _e( 'Source form', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_source_form' ) ?></th>
+						<th><?php _e( 'Source form', 'gravityforms-related-fields' ); ?> <?php gform_tooltip( 'gfrf_source_form' ) ?></th>
 						<td>
 							<select name="source_form" onchange="set_source_form_fields(this)">
-								<option value=""><?php _e( 'Select a form', 'gravityformsrelatedfields' ); ?></option>
+								<option value=""><?php _e( 'Select a form', 'gravityforms-related-fields' ); ?></option>
 								<?php foreach ( $forms as $form ) : ?>
 									<option value="<?php echo $form->id; ?>" <?php selected( $source_form_id, $form->id ); ?>><?php echo esc_html( $form->title ); ?></option>
 								<?php endforeach; ?>
@@ -215,7 +215,7 @@ class GFRF_Admin {
 						</td>
 					</tr>
 					<tr id="source_form_field_row" <?php echo empty( $source_form_id ) ? 'style="display:none;"' : '' ?>>
-						<th><?php _e( 'Source form field', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_source_form_field' ) ?></th>
+						<th><?php _e( 'Source form field', 'gravityforms-related-fields' ); ?> <?php gform_tooltip( 'gfrf_source_form_field' ) ?></th>
 						<td>
 							<select id="source_form_field" name="source_form_field" style="max-width: 400px;">
 								<?php echo gfrf_get_available_form_fields( $source_form_id, $source_form_field_id ); ?>
@@ -228,7 +228,7 @@ class GFRF_Admin {
 				<input type="hidden" id="form_id" name="form_id" value="<?php echo $form_id; ?>" />
 
 				<p class="submit">
-					<input type="submit" name="save" value="<?php _e( 'Save Related Field', 'gravityformsrelatedfields' ); ?>" class="button-primary">
+					<input type="submit" name="save" value="<?php _e( 'Save Related Field', 'gravityforms-related-fields' ); ?>" class="button-primary">
 				</p>
 
 				<?php wp_nonce_field( 'gfrf_edit', 'gfrf_edit' ); ?>
@@ -282,9 +282,9 @@ class GFRF_Admin {
 			case 'delete':
 				$related_field_deleted = gfrf_delete_related_field( $object_id, rgget( 'id' ) );
 				if ( $related_field_deleted ) {
-					GFCommon::add_message( __( 'Related field connection deleted.', 'gravityformsrelatedfields' ) );
+					GFCommon::add_message( __( 'Related field connection deleted.', 'gravityforms-related-fields' ) );
 				} else {
-					GFCommon::add_error_message( __( 'There was an issue deleting this related field connection.', 'gravityformsrelatedfields' ) );
+					GFCommon::add_error_message( __( 'There was an issue deleting this related field connection.', 'gravityforms-related-fields' ) );
 				}
 				break;
 		}
@@ -321,17 +321,17 @@ class GFRF_Admin {
 
 		if ( empty( $related_field['target_field_id'] ) ) {
 			$failed_validation = true;
-			GFCommon::add_error_message( __( 'You must select a field to populate.', 'gravityformsrelatedfields' ) );
+			GFCommon::add_error_message( __( 'You must select a field to populate.', 'gravityforms-related-fields' ) );
 		}
 
 		if ( empty( $related_field['source_form_id'] ) ) {
 			$failed_validation = true;
-			GFCommon::add_error_message( __( 'You must select a source Gravity Form.', 'gravityformsrelatedfields' ) );
+			GFCommon::add_error_message( __( 'You must select a source Gravity Form.', 'gravityforms-related-fields' ) );
 		}
 
 		if ( empty( $related_field['source_form_field_id'] ) ) {
 			$failed_validation = true;
-			GFCommon::add_error_message( __( 'You must select a source field.', 'gravityformsrelatedfields' ) );
+			GFCommon::add_error_message( __( 'You must select a source field.', 'gravityforms-related-fields' ) );
 		}
 
 		if ( $failed_validation ) {
@@ -345,7 +345,7 @@ class GFRF_Admin {
 		update_option( "gfrf_related_fields_{$form_id}", $related_fields );
 
 		$url = remove_query_arg( array( 'rfid' ) );
-		GFCommon::add_message( sprintf( __( 'Related field saved successfully. %sBack to related fields.%s', 'gravityformsrelatedfields' ), '<a href="' . esc_url( $url ) . '">', '</a>' ) );
+		GFCommon::add_message( sprintf( __( 'Related field saved successfully. %sBack to related fields.%s', 'gravityforms-related-fields' ), '<a href="' . esc_url( $url ) . '">', '</a>' ) );
 
 		return $related_field;
 	}
@@ -360,8 +360,8 @@ class GFRF_Admin {
 	 * @return array Array of filtered tooltips.
 	 */
 	function add_tooltips( $tooltips ) {
-		$tooltips['gfrf_source_form']       = __( 'Entries from the source form will be used to populate your field', 'gravityformsrelatedfields' );
-		$tooltips['gfrf_source_form_field'] = __( 'The this field will be used as the option value. Make sure to pick something unique', 'gravityformsrelatedfields' );
+		$tooltips['gfrf_source_form']       = __( 'Entries from the source form will be used to populate your field', 'gravityforms-related-fields' );
+		$tooltips['gfrf_source_form_field'] = __( 'The this field will be used as the option value. Make sure to pick something unique', 'gravityforms-related-fields' );
 		return $tooltips;
 	}
 }
