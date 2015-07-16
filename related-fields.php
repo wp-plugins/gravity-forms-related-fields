@@ -128,7 +128,7 @@ function gfrf_get_available_form_fields( $form_id, $selected_field_id = 0 ) {
 }
 
 function gfrf_get_available_form_fields_callback() {
-	// TODO Nonce validation
+	check_ajax_referer( 'gfrf_get_available_form_fields', 'security' );
 
 	$form_id = rgpost( 'form_id' );
 
@@ -138,7 +138,8 @@ function gfrf_get_available_form_fields_callback() {
 add_action( 'wp_ajax_gfrf_get_available_form_fields', 'gfrf_get_available_form_fields_callback' );
 
 function gfrf_toggle_related_field_active_callback() {
-	// TODO Nonce validation
+	check_ajax_referer( 'gfrf_toggle_related_field_active', 'security' );
+
 	$form_id = rgpost( 'form_id' );
 	$related_field_id = rgpost( 'related_field_id' );
 	$is_active = rgpost( 'is_active' );

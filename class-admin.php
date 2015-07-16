@@ -128,6 +128,7 @@ class GFRF_Admin {
 					jQuery( img ).attr( 'title', '<?php _e( 'Active', 'gravityformsrelatedfields' ); ?>').attr( 'alt', '<?php _e( 'Active', 'gravityformsrelatedfields' ); ?>');
 				}
 				jQuery.post( ajaxurl, {
+					security: '<?php echo wp_create_nonce( 'gfrf_toggle_related_field_active' ); ?>',
 					form_id: <?php echo intval( $form_id ); ?>,
 					related_field_id: related_field_id,
 					is_active: is_active ? 0 : 1,
@@ -244,6 +245,7 @@ class GFRF_Admin {
 					}
 
 					jQuery.post( ajaxurl, {
+						security: '<?php echo wp_create_nonce( 'gfrf_get_available_form_fields' ); ?>',
 						form_id: form_id,
 						action: 'gfrf_get_available_form_fields'
 					},
