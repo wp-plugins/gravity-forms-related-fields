@@ -12,8 +12,8 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 			array(
 				'cb'      => '',
 				'field'    => __( 'Field', 'gravityforms' ),
-				'target_form_id'    => __( 'Form', 'gravityforms' ),
-				'target_form_field_id' => __( 'Form field', 'gravityforms' )
+				'source_form_id'    => __( 'Form', 'gravityforms' ),
+				'source_form_field_id' => __( 'Form field', 'gravityforms' )
 			),
 			array(),
 			array(),
@@ -114,7 +114,7 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 	<?php
 	}
 
-	function column_target_form( $item ) {
+	function column_source_form( $item ) {
 		
 	}
 

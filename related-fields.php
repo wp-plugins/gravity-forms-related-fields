@@ -39,14 +39,14 @@ function gfrf_populate_dropdown( $form ) {
 			continue;
 		}
 
-		$target_form_id       = rgar( $related_field, 'target_form_id' );
-		$target_form_field_id = rgar( $related_field, 'target_form_field_id' );
+		$source_form_id       = rgar( $related_field, 'source_form_id' );
+		$source_form_field_id = rgar( $related_field, 'source_form_field_id' );
 
-		$entries = gfrf_get_entries( $target_form_id, $target_form_field_id );
+		$entries = gfrf_get_entries( $source_form_id, $source_form_field_id );
 		$choices = array();
 
 		foreach ( $entries as $entry ) {
-			$choices[] = array( 'text' => $entry[ $target_form_field_id ], 'value' => $entry[ $target_form_field_id ] );
+			$choices[] = array( 'text' => $entry[ $source_form_field_id ], 'value' => $entry[ $source_form_field_id ] );
 		}
 
 		$field->choices = $choices;
@@ -63,14 +63,14 @@ add_filter( 'gform_pre_submission_filter', 'gfrf_populate_dropdown' );
 /**
  * Check if related field array contains a field mapping
  *
- * @param int $field_id Related field mapping to check
+ * @param int $target_field_id Related field mapping to check
  * @param array $related_fields Array of related field mappings
  *
  * @return array Related field array if matched or empty string if not found.
  */
-function gfrf_get_related_field( $field_id, $related_fields ) {
+function gfrf_get_related_field( $target_field_id, $related_fields ) {
 	foreach ( $related_fields as $related_field ) {
-		if ( rgar( $related_field, 'target_field_id' ) == $field_id ) {
+		if ( rgar( $related_field, 'target_field_id' ) == $target_field_id ) {
 			return $related_field;
 		}
 	}

@@ -179,8 +179,8 @@ class GFRF_Admin {
 		$forms = RGFormsModel::get_forms();
 
 		$target_field_id      = rgar( $related_field, 'target_field_id' );
-		$target_form_id       = rgar( $related_field, 'target_form_id' );
-		$target_form_field_id = rgar( $related_field, 'target_form_field_id' );
+		$source_form_id       = rgar( $related_field, 'source_form_id' );
+		$source_form_field_id = rgar( $related_field, 'source_form_field_id' );
 		?>
 		<div id="related-field-editor">
 
@@ -202,21 +202,21 @@ class GFRF_Admin {
 						</td>
 					</tr>
 					<tr>
-						<th><?php _e( 'Target form', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_target_form' ) ?></th>
+						<th><?php _e( 'Source form', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_source_form' ) ?></th>
 						<td>
-							<select name="target_form" onchange="set_target_form_fields(this)">
+							<select name="source_form" onchange="set_source_form_fields(this)">
 								<option value=""><?php _e( 'Select a form', 'gravityformsrelatedfields' ); ?></option>
 								<?php foreach ( $forms as $form ) : ?>
-									<option value="<?php echo $form->id; ?>" <?php selected( $target_form_id, $form->id ); ?>><?php echo esc_html( $form->title ); ?></option>
+									<option value="<?php echo $form->id; ?>" <?php selected( $source_form_id, $form->id ); ?>><?php echo esc_html( $form->title ); ?></option>
 								<?php endforeach; ?>
 							</select>
 						</td>
 					</tr>
-					<tr id="target_form_field_row" <?php echo empty( $target_form_id ) ? 'style="display:none;"' : '' ?>>
-						<th><?php _e( 'Target form field', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_target_form_field' ) ?></th>
+					<tr id="source_form_field_row" <?php echo empty( $source_form_id ) ? 'style="display:none;"' : '' ?>>
+						<th><?php _e( 'Source form field', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_source_form_field' ) ?></th>
 						<td>
-							<select id="target_form_field" name="target_form_field" style="max-width: 400px;">
-								<?php echo gfrf_get_available_form_fields( $target_form_id, $target_form_field_id ); ?>
+							<select id="source_form_field" name="source_form_field" style="max-width: 400px;">
+								<?php echo gfrf_get_available_form_fields( $source_form_id, $source_form_field_id ); ?>
 							</select>
 						</td>
 					</tr>
@@ -233,10 +233,10 @@ class GFRF_Admin {
 			</form>
 
 			<script type="text/javascript">
-				function set_target_form_fields( elem ) {
+				function set_source_form_fields( elem ) {
 					var form_id = elem.value;
 
-					jQuery( '#target_form_field_row' ).hide();
+					jQuery( '#source_form_field_row' ).hide();
 
 					if ( ! form_id ) {
 						return false;
@@ -249,8 +249,8 @@ class GFRF_Admin {
 					function( response ) {
 
 						if ( response ) {
-							jQuery( 'select#target_form_field' ).html( response );
-							jQuery( '#target_form_field_row' ).slideDown();
+							jQuery( 'select#source_form_field' ).html( response );
+							jQuery( '#source_form_field_row' ).slideDown();
 						} else {
 						}
 
@@ -311,8 +311,8 @@ class GFRF_Admin {
 
 		// TODO: check that these are valid IDS
 		$related_field['target_field_id']      = absint( rgpost( 'target_field' ) );
-		$related_field['target_form_id']       = absint( rgpost( 'target_form' ) );
-		$related_field['target_form_field_id'] = absint( rgpost( 'target_form_field' ) );
+		$related_field['source_form_id']       = absint( rgpost( 'source_form' ) );
+		$related_field['source_form_field_id'] = absint( rgpost( 'source_form_field' ) );
 
 		$failed_validation = false;
 
@@ -321,12 +321,12 @@ class GFRF_Admin {
 			GFCommon::add_error_message( __( 'You must select a field.', 'gravityformsrelatedfields' ) );
 		}
 
-		if ( empty( $related_field['target_form_id'] ) ) {
+		if ( empty( $related_field['source_form_id'] ) ) {
 			$failed_validation = true;
 			GFCommon::add_error_message( __( 'You must select a Gravity Form.', 'gravityformsrelatedfields' ) );
 		}
 
-		if ( empty( $related_field['target_form_field_id'] ) ) {
+		if ( empty( $related_field['source_form_field_id'] ) ) {
 			$failed_validation = true;
 			GFCommon::add_error_message( __( 'You must select a Gravity Form field to relate to.', 'gravityformsrelatedfields' ) );
 		}
@@ -357,8 +357,8 @@ class GFRF_Admin {
 	 * @return array Array of filtered tooltips.
 	 */
 	function add_tooltips( $tooltips ) {
-		$tooltips['gfrf_target_form']       = __( 'Entries from the source form will be used to populate your field', 'gravityformsrelatedfields' );
-		$tooltips['gfrf_target_form_field'] = __( 'The this field will be used as the option value. Make sure to pick something unique', 'gravityformsrelatedfields' );
+		$tooltips['gfrf_source_form']       = __( 'Entries from the source form will be used to populate your field', 'gravityformsrelatedfields' );
+		$tooltips['gfrf_source_form_field'] = __( 'The this field will be used as the option value. Make sure to pick something unique', 'gravityformsrelatedfields' );
 		return $tooltips;
 	}
 }
