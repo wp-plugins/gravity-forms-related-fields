@@ -1,6 +1,6 @@
 === Gravity Forms Related Fields Add-On ===
 Contributors: mikemanger
-Tags: 
+Tags: gravity forms
 Requires at least: 2.8.0
 Tested up to: 4.2.2
 Stable tag: 1.0.0
