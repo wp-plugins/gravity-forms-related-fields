@@ -186,7 +186,7 @@ class GFRF_Admin {
 
 				<table class="form-table gforms_form_settings">
 					<tr>
-						<th><?php _e( 'Field', 'gravityformsrelatedfields' ); ?></th>
+						<th><?php _e( 'Field to populate', 'gravityformsrelatedfields' ); ?></th>
 						<td>
 							<?php if ( empty( $current_form_fields ) ) : ?>
 								<?php _e( 'There are no mapable fields in this form', 'gravityformsrelatedfields' ); ?>
