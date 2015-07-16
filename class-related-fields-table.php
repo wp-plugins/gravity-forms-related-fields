@@ -10,10 +10,10 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 
 		$this->_column_headers = array(
 			array(
-				'cb'      => '',
-				'field'    => __( 'Field', 'gravityforms' ),
-				'source_form_id'    => __( 'Form', 'gravityforms' ),
-				'source_form_field_id' => __( 'Form field', 'gravityforms' )
+				'cb'                   => '',
+				'field'                => __( 'Field', 'gravityformsrelatedfields' ),
+				'source_form_id'       => __( 'Form', 'gravityformsrelatedfields' ),
+				'source_form_field_id' => __( 'Form field', 'gravityformsrelatedfields' )
 			),
 			array(),
 			array(),
@@ -71,7 +71,7 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 
 		$is_active = isset( $item['is_active'] ) ? $item['is_active'] : true;
 		?>
-		<img src="<?php echo GFCommon::get_base_url() ?>/images/active<?php echo intval( $is_active ) ?>.png" style="cursor: pointer;margin:-5px 0 0 8px;" alt="<?php $is_active ? __( 'Active', 'gravityforms' ) : __( 'Inactive', 'gravityforms' ); ?>" title="<?php echo $is_active ? __( 'Active', 'gravityforms' ) : __( 'Inactive', 'gravityforms' ); ?>" onclick="gfrf_toggle_active(this, '<?php echo $item['id'] ?>'); " />
+		<img src="<?php echo GFCommon::get_base_url() ?>/images/active<?php echo intval( $is_active ) ?>.png" style="cursor: pointer;margin:-5px 0 0 8px;" alt="<?php $is_active ? __( 'Active', 'gravityformsrelatedfields' ) : __( 'Inactive', 'gravityformsrelatedfields' ); ?>" title="<?php echo $is_active ? __( 'Active', 'gravityformsrelatedfields' ) : __( 'Inactive', 'gravityformsrelatedfields' ); ?>" onclick="gfrf_toggle_active(this, '<?php echo $item['id'] ?>'); " />
 	<?php
 	}
 
@@ -79,8 +79,8 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 		$edit_url      = add_query_arg( array( 'rfid' => $item['id'] ) );
 		$actions       = apply_filters(
 			'gfrf_related_field_actions', array(
-				'edit'   => '<a title="' . __( 'Edit this item', 'gravityforms' ) . '" href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'gravityforms' ) . '</a>',
-				'delete' => '<a title="' . __( 'Delete this item', 'gravityforms' ) . '" class="submitdelete" onclick="javascript: if(confirm(\'' . __( 'WARNING: You are about to delete this related field connection.', 'gravityforms' ) . __( "\'Cancel\' to stop, \'OK\' to delete.", 'gravityforms' ) . '\')){ gfrf_delete_confirmation(\'' . esc_js( $item['id'] ) . '\'); }" style="cursor:pointer;">' . __( 'Delete', 'gravityforms' ) . '</a>'
+				'edit'   => '<a title="' . __( 'Edit this item', 'gravityformsrelatedfields' ) . '" href="' . esc_url( $edit_url ) . '">' . __( 'Edit', 'gravityformsrelatedfields' ) . '</a>',
+				'delete' => '<a title="' . __( 'Delete this item', 'gravityformsrelatedfields' ) . '" class="submitdelete" onclick="javascript: if(confirm(\'' . __( 'WARNING: You are about to delete this related field connection.', 'gravityformsrelatedfields' ) . __( "\'Cancel\' to stop, \'OK\' to delete.", 'gravityformsrelatedfields' ) . '\')){ gfrf_delete_confirmation(\'' . esc_js( $item['id'] ) . '\'); }" style="cursor:pointer;">' . __( 'Delete', 'gravityformsrelatedfields' ) . '</a>'
 			)
 		);
 		foreach ( $this->form['fields'] as $field ) {
