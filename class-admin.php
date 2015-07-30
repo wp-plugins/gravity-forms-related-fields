@@ -203,10 +203,10 @@ class GFRF_Admin {
 						</td>
 					</tr>
 					<tr>
-						<th><?php _e( 'Source form', 'gravity-forms-related-fields' ); ?> <?php gform_tooltip( 'gfrf_source_form' ) ?></th>
+						<th><?php _e( 'Source form', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_source_form' ) ?></th>
 						<td>
 							<select name="source_form" onchange="set_source_form_fields(this)">
-								<option value=""><?php _e( 'Select a form', 'gravity-forms-related-fields' ); ?></option>
+								<option value=""><?php _e( 'Select a form', 'gravityformsrelatedfields' ); ?></option>
 								<?php foreach ( $forms as $form ) : ?>
 									<option value="<?php echo $form->id; ?>" <?php selected( $source_form_id, $form->id ); ?>><?php echo esc_html( $form->title ); ?></option>
 								<?php endforeach; ?>
@@ -214,7 +214,7 @@ class GFRF_Admin {
 						</td>
 					</tr>
 					<tr id="source_form_field_row" <?php echo empty( $source_form_id ) ? 'style="display:none;"' : '' ?>>
-						<th><?php _e( 'Source form field', 'gravity-forms-related-fields' ); ?> <?php gform_tooltip( 'gfrf_source_form_field' ) ?></th>
+						<th><?php _e( 'Source form field', 'gravityformsrelatedfields' ); ?> <?php gform_tooltip( 'gfrf_source_form_field' ) ?></th>
 						<td>
 							<select id="source_form_field" name="source_form_field" style="max-width: 400px;">
 								<?php echo gfrf_get_available_form_fields( $source_form_id, $source_form_field_id ); ?>
@@ -359,8 +359,8 @@ class GFRF_Admin {
 	 * @return array Array of filtered tooltips.
 	 */
 	function add_tooltips( $tooltips ) {
-		$tooltips['gfrf_source_form']       = __( 'Entries from the source form will be used to populate your field', 'gravity-forms-related-fields' );
-		$tooltips['gfrf_source_form_field'] = __( 'The this field will be used as the option value. Make sure to pick something unique', 'gravity-forms-related-fields' );
+		$tooltips['gfrf_source_form']       = __( 'Entries from the source form will be used to populate your field', 'gravityformsrelatedfields' );
+		$tooltips['gfrf_source_form_field'] = __( 'The this field will be used as the option value. Make sure to pick something unique', 'gravityformsrelatedfields' );
 		return $tooltips;
 	}
 }
