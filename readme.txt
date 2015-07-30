@@ -3,7 +3,7 @@ Contributors: mikemanger
 Tags: gravity forms
 Requires at least: 2.8.0
 Tested up to: 4.2.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,9 @@ Please raise a ticket on the [issue tracker](https://bitbucket.org/lighthouseuk/
 2. You can have multiple related field connections for each form and disable them when they are not needed.
 
 == Changelog ==
+
+= 1.0.1 =
+* Increase populated entries limit to 200 from 20
 
 = 1.0.0 =
 * First public release
