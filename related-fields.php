@@ -99,7 +99,6 @@ function gfrf_get_entries( $form_id, $field_id ) {
 
 	return GFAPI::get_entries( $form_id, $search_criteria, $sorting );
 }
-
 function gfrf_get_related_fields( $form_id ) {
 	return get_option( "gfrf_related_fields_{$form_id}", array() );
 }
