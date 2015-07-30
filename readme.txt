@@ -18,7 +18,7 @@ To create related fields edit a Gravity Form and go to 'Related Fields' from the
 
 == Installation ==
 
-1. Upload `gravityforms-related-fields` to the `/wp-content/plugins/` directory
+1. Upload `gravity-forms-related-fields` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 == Frequently Asked Questions ==
