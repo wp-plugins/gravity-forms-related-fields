@@ -89,8 +89,8 @@ class GFRF_Admin {
 		$add_new_url = add_query_arg( array( 'rfid' => 0 ) );
 		?>
 
-		<h3><span><?php _e( 'Related Field Connections', 'gravity-forms-related-fields' ) ?>
-				<a id="add-new-related-field" class="add-new-h2" href="<?php echo esc_url( $add_new_url ) ?>"><?php _e( 'Add New', 'gravity-forms-related-fields' ) ?></a></span>
+		<h3><span><?php _e( 'Related Field Connections', 'gravityformsrelatedfields' ) ?>
+				<a id="add-new-related-field" class="add-new-h2" href="<?php echo esc_url( $add_new_url ) ?>"><?php _e( 'Add New', 'gravityformsrelatedfields' ) ?></a></span>
 		</h3>
 
 		<?php
