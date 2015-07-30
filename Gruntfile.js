@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 		},
 		pot: {
 			options:{
-				text_domain: 'gravity-forms-related-fields',
+				text_domain: 'gravityforms-related-fields',
 				dest: 'languages/',
 				keywords: [
 					'__:1',
