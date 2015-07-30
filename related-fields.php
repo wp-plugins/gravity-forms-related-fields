@@ -97,7 +97,12 @@ function gfrf_get_entries( $form_id, $field_id ) {
 		'direction' => 'ASC',
 	);
 
-	return GFAPI::get_entries( $form_id, $search_criteria, $sorting );
+	$paging = array(
+		'offset'    => 0,
+		'page_size' => 200,
+	);
+
+	return GFAPI::get_entries( $form_id, $search_criteria, $sorting, $paging );
 }
 function gfrf_get_related_fields( $form_id ) {
 	return get_option( "gfrf_related_fields_{$form_id}", array() );
