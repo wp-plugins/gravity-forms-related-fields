@@ -194,7 +194,7 @@ class GFRF_Admin {
 								<?php _e( 'There are no mapable fields in this form', 'gravity-forms-related-fields' ); ?>
 							<?php else: ?>
 								<select name="target_field">
-									<option value=""><?php _e( 'Select a field', 'gravity-forms-related-fields' ); ?></option>
+									<option value=""><?php _e( 'Select a field', 'gravityformsrelatedfields' ); ?></option>
 									<?php foreach ( $current_form_fields as $id => $label ) : ?>
 										<option value="<?php echo $id; ?>" <?php selected( $target_field_id, $id ); ?>><?php echo $label; ?></option>
 									<?php endforeach; ?>
