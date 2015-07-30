@@ -19,7 +19,6 @@ class GFRF_Admin {
 	public function __construct() {
 		add_filter( 'gform_form_settings_menu', array( $this, 'settings_menu' ), 10, 2 );
 		add_action( 'gform_form_settings_page_gfrf-settings', array( $this, 'settings_page' ) );
-
 		add_filter( 'gform_tooltips', array( $this, 'add_tooltips' ) );
 	}
 
