@@ -24,10 +24,10 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 
 		$this->_column_headers = array(
 			array(
-				'cb'                   => '',
-				'field'                => __( 'Field', 'gravityformsrelatedfields' ),
-				'source_form_id'       => __( 'Form', 'gravityformsrelatedfields' ),
-				'source_form_field_id' => __( 'Form field', 'gravityformsrelatedfields' )
+				'cb'                => '',
+				'target_field'      => __( 'Field', 'gravityformsrelatedfields' ),
+				'source_form'       => __( 'Source form', 'gravityformsrelatedfields' ),
+				'source_form_field' => __( 'Source form field', 'gravityformsrelatedfields' )
 			),
 			array(),
 			array(),
