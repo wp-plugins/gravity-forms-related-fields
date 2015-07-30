@@ -5,6 +5,7 @@ Description: Automatically populate Gravity Forms fields based on form submissio
 Plugin URI:  https://bitbucket.org/lighthouseuk/gravityforms-related-fields
 Version:     1.0.0
 Author:      Mike Manger
+Author URI:  https://profiles.wordpress.org/mikemanger/
 Text Domain: gravity-forms-related-fields
 Domain Path: /languages
 License:     GNU General Public License v2
