@@ -30,15 +30,11 @@ function gfrf_populate_dropdown( $form ) {
 
 	foreach ( $form['fields'] as &$field ) {
 
-		if ( ! gfrf_is_valid_field_type( $field['type'] ) ) {
+		if ( $field['type'] != 'select' && $field['type'] != 'multiselect' ) {
 			continue;
 		}
 
 		$related_field = gfrf_get_related_field( $field['id'], $related_fields );
-
-		if ( empty( $related_field ) ) {
-			continue;
-		}
 
 		$is_active  = isset( $related_field['is_active'] ) ? $related_field['is_active'] : true;
 
