@@ -320,17 +320,17 @@ class GFRF_Admin {
 
 		if ( empty( $related_field['target_field_id'] ) ) {
 			$failed_validation = true;
-			GFCommon::add_error_message( __( 'You must select a field to populate.', 'gravity-forms-related-fields' ) );
+			GFCommon::add_error_message( __( 'You must select a field to populate.', 'gravityformsrelatedfields' ) );
 		}
 
 		if ( empty( $related_field['source_form_id'] ) ) {
 			$failed_validation = true;
-			GFCommon::add_error_message( __( 'You must select a source Gravity Form.', 'gravity-forms-related-fields' ) );
+			GFCommon::add_error_message( __( 'You must select a source Gravity Form.', 'gravityformsrelatedfields' ) );
 		}
 
 		if ( empty( $related_field['source_form_field_id'] ) ) {
 			$failed_validation = true;
-			GFCommon::add_error_message( __( 'You must select a source field.', 'gravity-forms-related-fields' ) );
+			GFCommon::add_error_message( __( 'You must select a source field.', 'gravityformsrelatedfields' ) );
 		}
 
 		if ( $failed_validation ) {
