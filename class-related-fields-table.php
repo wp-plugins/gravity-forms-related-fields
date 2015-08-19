@@ -31,7 +31,7 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 			),
 			array(),
 			array(),
-			'field',
+			'target_field',
 		);
 
 		parent::__construct();
@@ -75,6 +75,10 @@ class GFRF_Related_Fields_Table extends WP_List_Table {
 		echo '<tr id="confirmation-' . $item['id'] . '" ' . $row_class . '>';
 		echo $this->single_row_columns( $item );
 		echo '</tr>';
+	}
+
+	function get_columns() {
+		return $this->_column_headers[0];
 	}
 
 	function column_default( $item, $column ) {
