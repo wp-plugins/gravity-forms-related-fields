@@ -28,6 +28,17 @@ To create related fields edit a Gravity Form and go to 'Related Fields' from the
 
 == Frequently Asked Questions ==
 
+= My populated field only displays the first 200 entries =
+
+This limit is set to reduce database timeouts. There is a filter `gfrf_entry_limit` to increase the limit. As an example add the following code to your functions.php file:
+
+`
+function my_theme_change_gfrf_entry_limit( $entry_limit ) {
+	return 500;
+}
+add_filter( 'gfrf_entry_limit', 'my_theme_change_gfrf_entry_limit' );
+`
+
 = I have found a bug =
 
 Please raise a ticket on the [issue tracker](https://bitbucket.org/lighthouseuk/gravityforms-related-fields/issues). Pull requests also accepted!
@@ -38,6 +49,9 @@ Please raise a ticket on the [issue tracker](https://bitbucket.org/lighthouseuk/
 2. You can have multiple related field connections for each form and disable them when they are not needed.
 
 == Changelog ==
+
+= 1.0.2 =
+* Add filter for populated entries limit
 
 = 1.0.1 =
 * Increase populated entries limit to 200 from 20

@@ -97,9 +97,22 @@ function gfrf_get_entries( $form_id, $field_id ) {
 		'direction' => 'ASC',
 	);
 
+	/**
+	 * Filter the page size value for limiting entries retrieved from a related field.
+	 *
+	 * This is limited to reduce database time outs.
+	 *
+	 * @see https://www.gravityhelp.com/documentation/article/api-functions/#get_entries
+	 * @since 1.0.2
+	 *
+	 * @param int $entry_limit Maxium number of entries to display in a related field.
+	 *                         Default 200.
+	 */
+	$entry_limit = apply_filters( 'gfrf_entry_limit', 200 );
+
 	$paging = array(
 		'offset'    => 0,
-		'page_size' => 200,
+		'page_size' => $entry_limit,
 	);
 
 	return GFAPI::get_entries( $form_id, $search_criteria, $sorting, $paging );
