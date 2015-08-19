@@ -2,8 +2,8 @@
 Contributors: mikemanger
 Tags: gravity forms
 Requires at least: 2.8.0
-Tested up to: 4.2.2
-Stable tag: 1.0.2
+Tested up to: 4.3
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -50,6 +50,9 @@ Please raise a ticket on the [issue tracker](https://bitbucket.org/lighthouseuk/
 
 == Changelog ==
 
+= 1.0.3 =
+* Fix list table error in WordPress 4.3
+
 = 1.0.2 =
 * Add filter for populated entries limit
 
@@ -58,3 +61,8 @@ Please raise a ticket on the [issue tracker](https://bitbucket.org/lighthouseuk/
 
 = 1.0.0 =
 * First public release
+
+== Upgrade Notice ==
+
+= 1.0.3 =
+This version fixes compatiablity with WordPress 4.3
