@@ -16,6 +16,11 @@ of another form as their values.
 
 To create related fields edit a Gravity Form and go to 'Related Fields' from the Form Settings menu.
 
+Any multiple choice field (select, checkbox or radio) can be mapped to have the submission entries
+of another form as their values.
+
+To create related fields edit a Gravity Form and go to 'Related Fields' from the Form Settings menu.
+
 == Installation ==
 
 1. Upload `gravity-forms-related-fields` to the `/wp-content/plugins/` directory
